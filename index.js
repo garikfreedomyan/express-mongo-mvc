@@ -1,5 +1,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const homeRoute = require('./routes/home');
+const coursesRoute = require('./routes/courses');
+const addCourseRoute = require('./routes/add-course');
 
 const app = express();
 const hbs = exphbs.create({
@@ -12,27 +15,9 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 app.use(express.static('public'));
-
-app.get('/', (req, res) => {
-  res.render('index', {
-    title: 'Courses store',
-    isHome: true,
-  });
-});
-
-app.get('/courses', (req, res) => {
-  res.render('courses', {
-    title: 'Courses',
-    isCourses: true,
-  });
-});
-
-app.get('/courses/add', (req, res) => {
-  res.render('add-course', {
-    title: 'Add course',
-    isAdd: true,
-  });
-});
+app.use('/', homeRoute);
+app.use('/courses', coursesRoute);
+app.use('/courses/add', addCourseRoute);
 
 const PORT = process.env.PORT || 3000;
 
