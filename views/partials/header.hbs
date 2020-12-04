@@ -7,18 +7,35 @@
 
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/courses">Courses</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/courses/add">Add course</a>
-        </li>
+        {{#if isHome}}
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        {{/if}}
+
+        {{#if isCourses}}
+          <li class="nav-item active">
+            <a class="nav-link" href="/courses">Courses</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/courses">Courses</a>
+          </li>
+        {{/if}}
+
+        {{#if isAdd}}
+          <li class="nav-item active">
+            <a class="nav-link" href="/courses/add">Add course</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/courses/add">Add course</a>
+          </li>
+        {{/if}}
       </ul>
     </div>
   </nav>
