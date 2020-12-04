@@ -1,0 +1,31 @@
+{
+  "name": "express-mongo-mvc",
+  "version": "1.0.0",
+  "description": "ExpressJS App with mongoDB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garikfreedomyan/express-mongo-mvc.git"
+  },
+  "keywords": [
+    "express",
+    "mongoDB",
+    "nodeJS"
+  ],
+  "author": "Garik Freedomyan <garikfreedomyan@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garikfreedomyan/express-mongo-mvc/issues"
+  },
+  "homepage": "https://github.com/garikfreedomyan/express-mongo-mvc#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
