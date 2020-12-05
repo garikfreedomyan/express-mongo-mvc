@@ -1,3 +1,16 @@
 .maini-header {
   margin-bottom: 20px;
 }
+
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards-list > div {
+  margin: 0 16px 16px 0;
+}
+
+.course-price {
+  font-size: 2rem;
+}

@@ -1,3 +1,28 @@
 <div class="container">
   <h1>Courses</h1>
+
+  {{#if courses.length}}
+    <div class="cards-list">
+    {{#each courses}}
+      <div class="card" style="width: 18rem;">
+        <img src="{{img}}" class="card-img-top" alt="{{title}}">
+        <div class="card-body">
+          <h4 class="card-title">{{title}}</h4>
+          <h5 class="card-title course-price" style="margin: 0;">{{price}}</h5>
+        </div>
+        <hr style="margin: 0;"/>
+        <div class="card-body">
+          <a href="/courses/edit/{{id}}" class="card-link">Edit</a>
+          <a href="/courses/{{id}}" class="card-link">Open</a>
+          <a href="#" class="card-link">Add to cart</a>
+        </div>
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
+      </div>
+    {{/each}}
+    </div>
+  {{else}}
+    <p>There is no courses yet</p>
+  {{/if}}
 </div>
