@@ -2,8 +2,11 @@
   <h1>{{course.title}}</h1>
   <img src="{{course.img}}" alt="{{course.title}}">
   <p class="course-price">{{course.price}}</p>
-  <div class="card-body">
+  <div class="card-body card-links-block">
     <a href="/courses/{{course.id}}/edit?allow=true" class="card-link">Edit</a>
-    <a href="#" class="card-link">Add to cart</a>
+    <form action="/cart/add" method="POST">
+      <input type="hidden" name="id" value="{{course.id}}">
+      <button type="submit" class="btn btn-primary">Add to cart</button>
+    </form>
   </div>
 </div>

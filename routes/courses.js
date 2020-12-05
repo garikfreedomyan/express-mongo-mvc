@@ -11,6 +11,21 @@ router.get('/', async (req, res) => {
   });
 });
 
+router.get('/add', (req, res) => {
+  res.render('add-course', {
+    title: 'Add course',
+    isAdd: true,
+  });
+});
+
+router.post('/add', async (req, res) => {
+  const { title, price, img } = req.body;
+  const course = new Course(title, price, img);
+
+  await course.save();
+  res.redirect('/courses');
+});
+
 router.get('/:id', async (req, res) => {
   course = await Course.getByID(req.params.id);
   res.render('course', {

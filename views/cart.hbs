@@ -1,0 +1,28 @@
+<div class="container cart-page">
+  <h1>Cart</h1>
+  {{#if courses.length}}
+  <table class="table table-hover cart-table">
+    <thead>
+      <tr class="table-active">
+        <th scope="col">Title</th>
+        <th scope="col">Count</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each courses}}
+      <tr>
+        <th scope="row">{{title}}</th>
+        <td>{{count}}</td>
+        <td>{{price}}</td>
+        <td><button type="button" class="btn btn-danger delete-from-cart-btn" data-id="{{id}}">Delete</button></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <p><strong>Amount:</strong> <span class="course-price">{{price}}</span></p>
+  {{else}}
+  <p>Cart is empty</p>
+  {{/if}}
+</div>

@@ -11,10 +11,13 @@
           <h5 class="card-title course-price" style="margin: 0;">{{price}}</h5>
         </div>
         <hr style="margin: 0;"/>
-        <div class="card-body">
+        <div class="card-body card-links-block">
           <a href="/courses/{{id}}/edit?allow=true" class="card-link">Edit</a>
           <a href="/courses/{{id}}" class="card-link">Open</a>
-          <a href="#" class="card-link">Add to cart</a>
+          <form action="/cart/add" method="POST">
+            <input type="hidden" name="id" value="{{id}}">
+            <button type="submit" class="btn btn-primary">Add to cart</button>
+          </form>
         </div>
         <div class="card-footer text-muted">
           2 days ago
