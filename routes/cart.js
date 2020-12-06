@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/add', async (req, res) => {
-  const course = await Course.getByID(req.body.id);
+  const course = await Course.findById(req.body.id);
   await Cart.add(course);
   res.redirect('/cart');
 });

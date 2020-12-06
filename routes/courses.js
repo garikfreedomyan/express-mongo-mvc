@@ -1,9 +1,10 @@
 const { Router } = require('express');
+// const  = require('mongoose')
 const Course = require('../models/course');
 const router = Router();
 
 router.get('/', async (req, res) => {
-  const courses = await Course.getAll();
+  const courses = await Course.find();
   res.render('courses', {
     title: 'Courses',
     isCourses: true,
@@ -20,14 +21,22 @@ router.get('/add', (req, res) => {
 
 router.post('/add', async (req, res) => {
   const { title, price, img } = req.body;
-  const course = new Course(title, price, img);
+  const course = new Course({
+    title,
+    price,
+    img,
+  });
 
-  await course.save();
-  res.redirect('/courses');
+  try {
+    await course.save();
+    res.redirect('/courses');
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 router.get('/:id', async (req, res) => {
-  course = await Course.getByID(req.params.id);
+  course = await Course.findById(req.params.id);
   res.render('course', {
     title: `Course ${course.title}`,
     course,
@@ -39,7 +48,7 @@ router.get('/:id/edit', async (req, res) => {
     return res.redirect('/');
   }
 
-  course = await Course.getByID(req.params.id);
+  course = await Course.findById(req.params.id);
 
   res.render('course-edit', {
     title: `Edit course ${course.title}`,
@@ -48,10 +57,7 @@ router.get('/:id/edit', async (req, res) => {
 });
 
 router.post('/:id/edit', async (req, res) => {
-  course = await Course.update({
-    ...req.body,
-    id: req.params.id,
-  });
+  await Course.findByIdAndUpdate(req.params.id, req.body);
 
   res.redirect(`/courses/${req.params.id}`);
 });
