@@ -28,7 +28,7 @@ app.use('/cart', cartRoutes);
 const PORT = process.env.PORT || 3000;
 
 (async function start() {
-  const MONGOOSE_URI = 'mongodb+srv://Garik:Td9h59rK7fvSznKk@cluster0.wopml.mongodb.net/store';
+  const MONGOOSE_URI = '';
   try {
     mongoose.set('useFindAndModify', false);
     await mongoose.connect(MONGOOSE_URI, {
